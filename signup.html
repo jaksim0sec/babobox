@@ -1,0 +1,254 @@
+<head>
+  <title>바보상자 ► 회원가입</title>
+  <link rel="shortcut icon" href="https://i.ibb.co/80mBhw1/003-5.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&amp;display=swap" rel="stylesheet">
+</head>
+<style>
+   a:link, a:visited, a:hover {color: black;text-decoration: none;}
+  #main { width: 100%;}
+  #header, #nav { width: 100%; height: 70px; }
+  #nav {display: flex;}
+  #logo {
+    font-family: "Jua", sans-serif;
+    font-style: normal;
+    width: 20%;
+    height: 70px;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #nav_buttons, #profile, #profile-login, #profile-notlogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #nav_buttons { width: 60%;}
+  #nav_buttons button { width: 90px;}
+  #profile { width: 25%; }
+  #profile::before{content: '|'; font-family: "Jua", sans-serif; font-style: normal;}
+  #nav_buttons::before{content: '|'; font-family: "Jua", sans-serif; font-style: normal;}
+  #nav_buttons button, #profile button { margin: auto; }
+  #profile-login { width: 100%; }
+  #profile-notlogin { width: 100%; }
+  button{font-size: 15px;transition: all 0.3s ease;background-color: white;border:none;border-radius:20px;}
+  #nav_buttons button {
+    font-size: 15px;
+    border-radius: 20px;
+    border:none;
+    transition: all 0.3s ease;
+    background-color: white;
+    height: 35px;
+  }
+  #nav_buttons button:hover {
+    border: 4px solid #E2E2E2;
+    background-color: #FDFDFD;
+  }
+
+  #profile-login-usercover { transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; padding: 10px; padding-bottom: 3px; padding-top: 3px; border-radius: 20px;}
+  #profile-login-usercover:hover { background-color: #E2E2E2; }
+  #profile-img { margin-right: 10px; border-radius: 50%; transition: all 0.3s ease; height: 40px; }
+  #profile-img img { border-radius: 50%; }
+  #profile-img:hover { filter: brightness(70%); }
+  #profile-name { font-weight: bold; }
+  #profile-more button { border: 1px solid #ACACAC; margin-left: 10px; height: 40px; border-radius: 15px; }
+  #profile-more button:hover { background-color: #E2E2E2; }
+  #profile-notlogin button { border: 1px solid #ACACAC; height: 40px; border-radius: 15px; width: 90px; margin: 10px; }
+
+  .midbutton{
+    background-color: white;
+    color: black;
+  }
+  .midbutton:hover{ background-color: #E2E2E2; }
+  .highbutton {
+    background-color: #363636;
+    color: white;
+  }
+  .highbutton:hover {background-color: #606060;}
+  input[type="text"], input[type="password"],input[type="email"] {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid #939393;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  input[type="text"]:focus, input[type="password"]:focus,input[type="email"]:focus {
+    background-color: #fff3e5;
+    border: 1.5px solid #ffb561;
+    box-shadow: 0 0 3px #fdc08a;
+    outline: none;
+  }
+
+  hr {
+      border: none;
+      border-top: 0.8px solid rgba(0, 0, 0, 0.5);
+      background-color: transparent;
+      width: 90%;
+  }
+  form button 
+  {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    background-color: #363636;
+    font-size: 18px;
+    font-family: "Jua", sans-serif;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .signup-link {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .signup-link a {
+    color: #363636;
+    font-weight: bold;
+  }
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  #loader{
+    width:100%;
+    height:100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index:1;
+    align-content:center;
+    text-align:center;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+    font-size : 25px;
+    display: none; /* 기본적으로 숨김 */
+  }
+</style>
+<div id="loader">
+  <div style="">로딩중</div>
+  <div style="font-size: 15px;">이 로딩은 몇초 정도 걸려요</div>
+</div>
+<div id="loader">
+  <div style="">로딩중</div>
+  <div style="font-size: 15px;">이 로딩은 몇초 정도 걸려요</div>
+</div>
+<div id="main">
+  <div id="header">
+    <div id="nav">
+      <span id="logo">
+        <img src="https://i.ibb.co/80mBhw1/003-5.png" width="50px" onclick = "pageMove('/','')"/>
+      </span>
+      <span id="nav_buttons">
+        <button onclick="pageMove('/comu', '')">커뮤</button>
+        <button onclick="pageMove('/art', '')">아트</button>
+        <button onclick="pageMove('/explore', '')">탐험</button>
+      </span>
+      <span id="profile">
+        <div id="profile-notlogin">
+          <button onclick="pageMove('/login', '')" class = "highbutton">로그인</button>
+          <button onclick="pageMove('/signup', '')" class = "midbutton">회원가입</button>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+<hr>
+<div style = "width:100%;height:500px;align-items: center;justify-content: center;display: flex;flex-direction: column;align-items: center;">
+  <form action="/signup" method="post" onsubmit="return checkForm();" style = "width:50%">
+    <div style="width: 80%; font-weight: bold; font-size: 13px">아이디</div>
+    <input type="text" autocomplete="off" id="username" name="username" required placeholder="영문, 숫자와 언더바" />
+    <div style="width: 80%; font-weight: bold; font-size: 13px">닉네임</div>
+    <input type="text" autocomplete="off" id="nickname" name="nickname" required placeholder="한글 또는 영문 2에서 6글자" />
+    <div style="width: 80%; font-weight: bold; font-size: 13px">복구 이메일</div>
+    <input type="email" autocomplete="off" id="email" name="email" required placeholder="@ 를 포함한 실제 이메일" />
+    <div style="width: 80%; font-weight: bold; font-size: 13px">비밀번호</div>
+    <input type="password" autocomplete="off" id="password" name="password" required placeholder="소문자, 대문자, 숫자, 그리고 특수문자를 사용한 8자 이상" />
+    <div style="width: 80%; font-weight: bold; font-size: 13px">비밀번호 확인</div>
+    <input type="password" autocomplete="off" id="confirm_password" name="confirm_password" required placeholder="동일한 비밀번호" />
+    <div class="alert" id="alerter" style = "color:white;">오류 메시지가 여기에 나타납니다.</div>
+<button type="submit" class = "highbutton">
+  <div style = "display:flex;justify-content:center;">
+  <img src="https://i.ibb.co/fr2bFKm/004-1.png" alt="logo" style="display:inline-flex; margin-right:2%;width: 20px;height:20px;">
+<div style="display:inline-flex;">로그인</div></div></button>
+  </form>
+</div>
+
+<script>
+  function pageMove(link, adder) { 
+    window.location.href = link;
+  }
+  window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get("error");
+    const password = urlParams.get("password");
+    const email = urlParams.get("email");
+
+    if (errorMessage === "1" || errorMessage === "2") {
+      document.getElementById("alerter").style.display = "block";
+      document.getElementById("alerter").innerText = "회원 가입 오류가 발생했습니다.";
+      document.getElementById("email").value = email;
+      document.getElementById("password").value = password;
+      document.getElementById("confirm_password").value = password;
+
+      if (errorMessage === "2") {
+        const username = urlParams.get("username");
+        document.getElementById("username").value = username;
+      }
+    }
+  };
+
+  function checkForm() {
+    const username = document.getElementById("username").value.trim();
+    const nickname = document.getElementById("nickname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirm_password = document.getElementById("confirm_password").value;
+
+    const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+    if (!usernameRegex.test(username)) {
+      document.querySelector("#alerter").innerText = "아이디는 영문, 숫자, 언더바(_)만 허용되며, 최소 3자 이상이어야 합니다.";
+      document.querySelector("#alerter").style.display = "block";
+      return false;
+    }
+
+    const nicknameRegex = /^[가-힣a-zA-Z]{2,6}$/;
+    if (!nicknameRegex.test(nickname)) {
+      document.querySelector("#alerter").innerText = "닉네임은 한글 또는 영문으로 2에서 6글자 사이여야 합니다.";
+      document.querySelector("#alerter").style.display = "block";
+      return false;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      document.querySelector("#alerter").innerText = "유효한 이메일 주소를 입력하세요.";
+      document.querySelector("#alerter").style.display = "block";
+      return false;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>ยง?ยฉยขย�ย�ย…ย–ย�]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      document.querySelector("#alerter").innerText = "비밀번호는 소문자, 대문자, 숫자, 특수문자를 모두 포함하여 8자 이상이어야 합니다.";
+      document.querySelector("#alerter").style.display = "block";
+      return false;
+    }
+
+    if (password !== confirm_password) {
+      document.querySelector("#alerter").innerText = "비밀번호가 일치하지 않습니다.";
+      document.querySelector("#alerter").style.display = "block";
+      return false;
+    }
+
+    return true; // 모든 조건을 만족하면 true 반환
+  }
+</script>
