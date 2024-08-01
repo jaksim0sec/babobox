@@ -1,0 +1,722 @@
+<head>
+  <title></title>
+  <link rel="shortcut icon" href="https://i.ibb.co/80mBhw1/003-5.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jua&amp;display=swap"
+    rel="stylesheet"
+  />
+</head>
+<style>
+  a:link, a:visited, a:hover {color: black;text-decoration: none;}
+  #main { width: 100%;}
+  #header, #nav { width: 100%; height: 70px; }
+  #nav {display: flex;}
+  #logo {
+    font-family: "Jua", sans-serif;
+    font-style: normal;
+    width: 20%;
+    height: 70px;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #nav_buttons, #profile, #profile-login, #profile-notlogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #nav_buttons { width: 60%;}
+  #nav_buttons button { width: 90px;}
+  #profile { width: 25%; }
+  #profile::before{content: '|'; font-family: "Jua", sans-serif; font-style: normal;}
+  #nav_buttons::before{content: '|'; font-family: "Jua", sans-serif; font-style: normal;}
+  #nav_buttons button, #profile button { margin: auto; }
+  #profile-login { width: 100%; }
+  #profile-notlogin { width: 100%; }
+  button{font-size: 15px;transition: all 0.3s ease;background-color: white;border:none;border-radius:20px;}
+  #nav_buttons button {
+    font-size: 15px;
+    border-radius: 20px;
+    border:none;
+    transition: all 0.3s ease;
+    background-color: white;
+    height: 35px;
+  }
+  #nav_buttons button:hover {
+    border: 4px solid #E2E2E2;
+    background-color: #FDFDFD;
+  }
+
+  #profile-login-usercover { transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; padding: 10px; padding-bottom: 3px; padding-top: 3px; border-radius: 20px;}
+  #profile-login-usercover:hover { background-color: #E2E2E2; }
+  #profile-img { margin-right: 10px; border-radius: 50%; transition: all 0.3s ease; height: 40px; }
+  #profile-img img { border-radius: 50%; }
+  #profile-img:hover { filter: brightness(70%); }
+  #profile-name { font-weight: bold; }
+  #profile-more button { border: 1px solid #ACACAC; margin-left: 10px; height: 40px; border-radius: 15px; }
+  #profile-more button:hover { background-color: #E2E2E2; }
+  #profile-notlogin button { border: 1px solid #ACACAC; height: 40px; border-radius: 15px; width: 90px; margin: 10px; }
+
+  .midbutton{
+    background-color: white;
+    color: black;
+  }
+  .midbutton:hover{ background-color: #E2E2E2; }
+  .highbutton {
+    background-color: #363636;
+    color: white;
+  }
+  .highbutton:hover {background-color: #606060;}
+  
+  .article {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      width: 60%;
+      height: auto;
+      padding: 10px;
+      margin: 20px auto;
+      background-color:white;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      transition: all 0.3s ease;
+  }
+
+  .article:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-1px);
+      border-radius: 20px;
+  }
+
+  #article-head {
+    margin: 15px;
+    width: 90%;
+    height: 50px;
+    display: inline-flex;
+    text-align: left;
+  }
+  #article-body {
+    margin-bottom: 10px;
+    width: 90%;
+    height: auto;
+    min-height: 30px;
+    max-width:90%;
+    height:auto;
+  }
+  #article-tail {
+    width: 90%;
+    height: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+    align-content: left;
+  }
+  #article-profile {
+    border-radius: 50%;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+  }
+  #article-profile-cover {
+    width: 50px;
+    height: 50px;
+  }
+  #article-name-cover {
+    margin-left: 2%;
+    height: 50px;
+    text-align: left;
+  }
+  #article-nickname {
+    font-size: 18px;
+  }
+  #article-date {
+    font-size: 12px;
+    color: gray;
+    margin-left: 3px;
+  }
+  #article-content,#article-content-writer {
+    text-align: left;
+    width: 95%;
+    max-width: 95%;
+    height: auto;
+    word-wrap: break-word; /* 긴 단어가 있을 때 줄바꿈을 해줍니다 */
+    overflow-wrap: break-word; /* 긴 단어가 있을 때 줄바꿈을 해줍니다 */
+  }
+
+  #comment-profile {
+    border-radius: 50%;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+  }
+  textarea:focus {
+    background-color: transparent;
+    border: 1.5px solid #ffb561;
+    box-shadow: 0 0 3px #fdc08a;
+    outline: none;
+  }
+  textarea {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px #939393;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  textarea:hover {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #939393;
+    box-sizing: border-box;
+  }
+
+  .highlight {
+    transition: all 0.3s ease;
+    color: white;
+    background-color: #FF9B6D;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  .like {
+    transition: all 0.3s ease;
+    display: inline-flex;
+    height: 25px;
+    justify-content: center;
+    align-content: center;
+    background-color:#E7E7E7;
+    color:#757575;
+  }
+  .liked {
+    transition: all 0.3s ease;
+    background-color: #FF2D4D;
+    color: white;
+    display: inline-flex;
+    height: 25px;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .liked:hover {
+    background-color:#FF92A3;
+  }
+
+  .like:hover {
+    background-color:#AEAEAE;
+    color:#545454;
+  }
+
+  .highlight:hover {
+    background-color: #FD6633;
+  }
+
+  .comments-section {
+    margin-top: 10px;
+  }
+  .comments-section hr {
+    margin-top: 10px;
+  }
+  .comment-input {
+    margin-bottom: 10px;
+    width: 90%;
+    max-height: 100px;
+    overflow-y: auto;
+    resize: none;
+    border-radius: 10px;
+    border: 1px solid #939393;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  .comment-input:focus {
+  box-shadow: 0 0 3px #fdc08a;
+  background-color:white;
+  outline: none;
+  }
+  .comment-button {
+    width: 90%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .comment-button:hover {
+    background-color: #515151;
+  }
+
+  .article-right-button{
+    transition: all 0.3s ease;
+    display: inline-flex;
+    height: 25px;
+    justify-content: center;
+    align-content: center;
+    background-color:transparent;
+    color:#757575;
+  }
+
+  .article-right-button:hover{
+    transition: all 0.3s ease;
+    display: inline-flex;
+    height: 25px;
+    justify-content: center;
+    align-content: center;
+    background-color:#E7E7E7;
+    color:#757575;
+  }
+
+  .comment-place{
+    transition: all 0.3s ease;
+    background-color:transparent;
+    color:#757575;
+    border-radius:20px;
+    width:90%;
+  }
+
+  hr {
+      border: none;
+      border-top: 0.8px solid rgba(0, 0, 0, 0.5);
+      background-color: transparent;
+      width: 90%;
+  }
+
+  #loader{
+    width:100%;
+    height:100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index:1;
+    align-content:center;
+    text-align:center;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+    font-size : 25px;
+    display: none; /* 기본적으로 숨김 */
+  }
+</style>
+<div id="loader">
+  <div style="">로딩중</div>
+  <div style="font-size: 15px;">이 로딩은 몇초 정도 걸려요</div>
+</div>
+<div id="loader">
+  <div style="">로딩중</div>
+  <div style="font-size: 15px;">이 로딩은 몇초 정도 걸려요</div>
+</div>
+<div id="main">
+  <div id="header">
+    <div id="nav">
+      <span id="logo">
+        <img src="https://i.ibb.co/80mBhw1/003-5.png" width="50px" onclick = "pageMove('/','')"/>
+      </span>
+      <span id="nav_buttons">
+        <button onclick="pageMove('/comu', '')">커뮤</button>
+        <button onclick="pageMove('/art', '')">아트</button>
+        <button onclick="pageMove('/explore', '')">탐험</button>
+      </span>
+      <span id="profile">
+        <div id="profile-login">
+          <div id = "profile-login-usercover" onclick="pageMove('/profile',`?id=${ClientInfo.id}`)">
+          <div id="profile-img"><img id = "profile-img-real" src="https://ifh.cc/g/tHNLWX.jpg" width="40px;"/></div>
+          <div id="profile-name">테스트</div>
+          </div>
+          <div id="profile-more">
+            <button onclick="logout();">로그아웃</button>
+          </div>
+        </div>
+        <div id="profile-notlogin">
+          <button onclick="pageMove('/login', '')" class = "highbutton">로그인</button>
+          <button onclick="pageMove('/signup', '')" class = "midbutton">회원가입</button>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+<hr>
+<center>
+  <div id="article-list">
+    <div id="writter" class="article">
+      <center>
+        <form id="registrationForm" action="/comu" method="post">
+          <textarea
+            id="article-content-writer"
+            name="articleContent"
+            placeholder="내용을 입력해주세요."
+            rows="4"
+            cols="50"
+            style="resize: none"
+          ></textarea>
+          <button
+            type="button"
+            class="highbutton"
+            style="width: 95%; height: 30px; font-size: 15px;"
+            onclick="
+                    const articleContent = document.getElementById('article-content-writer').value.trim();
+                    if (articleContent.length > 0 && articleContent.length <= 200) {
+                      document.getElementById('registrationForm').submit();
+                    } else {
+                      window.alert('글자수는 1자 이상 200자 이하로 입력해주세요!');
+                    }
+                  "
+          >
+            올리기
+          </button>
+        </form>
+      </center>
+    </div>
+  </div>
+  <!-- article-list -->
+</center>
+
+<script>
+  console.log(
+    "%c바보상자",
+    "font-size: 20px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);",
+  );
+
+  const pagenameTOtitle = [
+    ["", "홈"],
+    ["comu", "커뮤"],
+    ["art", "아트"],
+    ["explore", "탐험"],
+  ];
+  let pathName = window.location.pathname;
+  let pageName = pathName.split("/").pop();
+  let pageTitle = pagenameTOtitle.find((x) => x[0] == pageName);
+  document.title = "바보상자 ► " + pageTitle[1];
+
+  let ClientInfo = { id: "testId", name: "테스터" };
+
+  function getHTML(params) {
+    return document.querySelector(params);
+  }
+
+  function pageMove(link, adder) {
+    if (login_status) {
+      window.location.href = link + "?login=true" + (adder ? "&" + adder : "");
+    } else {
+      window.location.href = link;
+    }
+  }
+
+  function escapeHtml(text) {
+    if (typeof text !== "string") {
+      return "";
+    }
+    const map = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    };
+    return text.replace(/[&<>"']/g, function (m) {
+      return map[m];
+    });
+  }
+
+  function pageSet(status) {
+    const logProf = getHTML("#profile-login");
+    const notlogProf = getHTML("#profile-notlogin");
+
+    if (status) {
+      logProf.style.display = "flex";
+      notlogProf.style.display = "none";
+    } else {
+      logProf.style.display = "none";
+      notlogProf.style.display = "flex";
+    }
+  }
+
+  function setInterface() {
+    if (ClientInfo.profile) {
+      getHTML("#profile-img-real").src = ClientInfo.profile;
+    }
+    if (ClientInfo.nickname) {
+      getHTML("#profile-name").innerText = ClientInfo.nickname;
+    }
+  }
+
+  function likebuttonwork(articleNum) {
+    //console.log('Like button clicked for article ' + articleNum);
+    fetch("/like", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ articleNum: articleNum }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("좋아요 요청 성공:", data);
+        document.querySelector("#like" + articleNum).innerText =
+          "❤" + data.like;
+        if (
+          document.querySelector("#like" + articleNum).className === "liked"
+        ) {
+          document.querySelector("#like" + articleNum).className = "like";
+        } else {
+          document.querySelector("#like" + articleNum).className = "liked";
+        }
+      })
+      .catch((error) => {
+        console.error("좋아요 요청 실패:", error);
+      });
+  }
+
+  function commentUpload(articleId) {
+    const commentInput = document.querySelector(`#comment-input-${articleId}`);
+    const commentContent = commentInput.value.trim();
+
+    if (commentContent.length > 0) {
+      console.log(`Upload comment for article ${articleId}: ${commentContent}`);
+
+      fetch("/comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          articleNum: articleId,
+          commentContent: commentInput.value,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("댓글 업로드 성공:", data);
+
+          if (data && data.comment && data.comment.length > 0) {
+            const updatedComment = data.comment[data.comment.length - 1]; // 마지막 댓글을 가져옴
+
+            let newCommentHTML = `<div id="article-head" style="margin-bottom: 0px;">
+                <div id="article-profile-cover">
+                  <img id="comment-profile" src="${escapeHtml(updatedComment.profile)}" width="50px">
+                </div>
+                <a href="/mypage?login=true&page=${escapeHtml(updatedComment.username)}" id="article-name-cover">
+                  <div id="article-nickname">${escapeHtml(updatedComment.nickname)}</div>
+                  <div id="article-date">${escapeHtml(updatedComment.date)}</div>
+                </a>
+              </div>
+              <div style="width: 85%; text-align: left;">${escapeHtml(updatedComment.content)}</div>
+              <hr style="width: 80%;">`;
+
+            // @nickname을 highlight로 바꾸기
+            if (newCommentHTML.includes("@" + ClientInfo.nickname)) {
+              newCommentHTML = newCommentHTML.replace(
+                new RegExp("@" + ClientInfo.nickname, "gi"),
+                `<a href="/mypage?login=true&page=${ClientInfo.username}"><span class="highlight">@${ClientInfo.nickname}</span></a>`,
+              );
+            }
+
+            const commentsSection = document.querySelector(
+              `#comments-section-${articleId}`,
+            );
+            const commentsList = commentsSection.querySelector(
+              `#comments-place-${articleId}`,
+            ); // Assuming you have a container for comments
+            console.log("얼띠꿀아이띵" + articleId);
+            document.querySelector("#commentbutton" + articleId).innerText =
+              "댓글 " + data.comment.length;
+            if (commentsList) {
+              commentsList.insertAdjacentHTML("beforeend", newCommentHTML);
+              commentInput.value = "";
+            } else {
+              console.error("댓글 목록 컨테이너를 찾을 수 없습니다.");
+            }
+          } else {
+            console.error("댓글 업로드 후 응답 데이터에 문제가 있습니다.");
+          }
+        })
+        .catch((error) => {
+          console.error("댓글 업로드 실패:", error);
+        });
+    } else {
+      alert("댓글 내용을 입력해주세요.");
+    }
+  }
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const login_status = urlParams.get("login");
+
+  function logout() {
+    fetch("/logout", {
+      method: "POST",
+    })
+      .then((response) => {
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  function pageWork() {
+    fetch("/getCommunityArticles")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("response get suc");
+        console.log(data);
+        const article_list = data;
+        renderArticleList(article_list);
+      })
+      .catch((error) => console.error("게시글 목록 가져오기 실패:", error));
+  }
+
+  function renderArticleList(articles) {
+    if (!Array.isArray(articles)) {
+      console.error("Invalid articles data:", articles);
+      return;
+    }
+
+    console.log("articles = " + articles);
+    const articleListContainer = document.querySelector("#article-list");
+    const fragment = document.createDocumentFragment();
+
+    let counter = 0;
+    let target = articles.length;
+    console.log("target = " + target);
+    articles.forEach((article) => {
+      counter++;
+      let comment_stuff = "";
+      if (article.comment && Array.isArray(article.comment)) {
+        article.comment.forEach((comment) => {
+          comment_stuff += `<div id="article-head" style="margin-bottom: 0px;">
+                <div id="article-profile-cover">
+                  <img id="comment-profile" src="${escapeHtml(comment.profile)}" width="50px">
+                </div>
+                <a href="/mypage?login=true&page=${escapeHtml(comment.username)}" id="article-name-cover">
+                  <div id="article-nickname">${escapeHtml(comment.nickname)}</div>
+                  <div id="article-date">${escapeHtml(comment.date)}</div>
+                </a>
+              </div>
+              <div style="width: 85%; text-align: left;word-wrap: break-word; 
+        overflow-wrap: break-word;">${escapeHtml(comment.content)}</div><hr style="width: 80%;">`;
+        });
+        
+        //if (counter = target) {
+        //comment_stuff = comment_stuff.slice(0, comment_stuff.length - 27);
+        //}
+        if (comment_stuff.includes("@" + ClientInfo.nickname)) {
+          comment_stuff = comment_stuff.replace(
+            new RegExp("@" + ClientInfo.nickname, "gi"),
+            `<span class="highlight">@${ClientInfo.nickname}</span>`,
+          );
+        }
+      }
+      comment_stuff = comment_stuff + "<div style = 'height:30px;'></div>";
+      const articleDiv = document.createElement("div");
+      articleDiv.classList.add("article");
+      const likestuff = "❤" + article.like;
+      let likeClass;
+
+      console.log(
+        "status:" +
+          article.whoLike.includes(ClientInfo.username) +
+          "," +
+          ClientInfo.username +
+          "+" +
+          article.whoLike,
+      );
+      if (article.whoLike.includes(ClientInfo.username)) {
+        likeClass = "liked";
+      } else {
+        likeClass = "like";
+      }
+
+      let buttontype = "신고";
+      if (article.username === ClientInfo.username) {
+        buttontype = "수정";
+      }
+
+      const articleDivStr = `<div id="article-head">
+              <div id="article-profile-cover">
+                <img id="article-profile" src="${escapeHtml(article.profile)}" width="50px">
+              </div>
+              <a href="/mypage?login=true&page=${escapeHtml(article.username)}" id="article-name-cover">
+                <div id="article-nickname">${escapeHtml(article.nickname)}</div>
+                <div id="article-date">${escapeHtml(article.date)}</div>
+              </a>
+            </div>
+            <div id="article-body">
+              <div id="article-content">
+                ${escapeHtml(article.content)}
+              </div>
+            </div>
+            <hr style="width: 90%">
+            <div id="article-tail" style="font-size: 12px;">
+              <button type="button" style="font-size:16px;" class="${likeClass}" onclick="likebuttonwork(${counter});" id="like${counter}">${likestuff}</button>
+              <button type="button" id = "commentbutton${counter}" style="font-size:16px;margin-left:0px;" onclick="if(document.querySelector('#comments-section-${counter}').style.display==='none'){document.querySelector('#comments-section-${counter}').style.display = 'block';}else{document.querySelector('#comments-section-${counter}').style.display = 'none';}" class="like">댓글 ${article.comment.length}</button>
+            <button class = "article-right-button" style="font-size:16px;margin-left:0px;">${buttontype}</button>
+            </div>
+            <div id="comments-section-${counter}" style="display:none;">
+    
+    <div class = "comment-place" style="background-color: rgba(0, 0, 0, 0.05);" id="comments-place-${counter}"><div class = "comment-real" style = "margin-bottom:20px;">${comment_stuff}</div></div>
+    <div id="comments-section-${counter}">
+      <textarea id="comment-input-${counter}" placeholder="댓글을 입력하세요" rows="2" style="resize: none; width: 90%; max-width: 100%; max-height: 100px; overflow-y: auto; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 10px; padding: 5px;"></textarea>
+      <button class = "highbutton" type="button" onclick="commentUpload(${counter})" style="width: calc(10% + 20px); height: 30px; margin-left: 5px; background-color: black; color: white; border: none; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease;width:90%;">댓글 올리기</button>
+      <div id="comments-list-${counter}" class="comments-list"></div>
+    </div>
+  </div>
+
+            </div>`;
+
+      articleDiv.innerHTML = articleDivStr;
+
+      // Highlight user's nickname in article content
+      if (article.content.includes("@" + ClientInfo.nickname)) {
+        const highlightedContent = articleDiv.querySelector("#article-content");
+        highlightedContent.innerHTML = highlightedContent.innerHTML.replace(
+          new RegExp("@" + ClientInfo.nickname, "gi"),
+          `<a href="/mypage?login=true&page=${ClientInfo.username}"><span class="highlight">@${ClientInfo.nickname}</span></a>`,
+        );
+        articleDiv.style.backgroundColor = "#FFF1E8";
+      }
+
+      fragment.appendChild(articleDiv);
+    });
+
+    articleListContainer.appendChild(fragment);
+  }
+  // 페이지 로드와 활동
+  window.onload = function () {
+    if (login_status) {
+      fetch("/getAllUserInfo")
+        .then((response) => response.text())
+        .then((text) => {
+          try {
+            const data = JSON.parse(text);
+            console.log("/getAllUserInfo Fetch successful");
+            ClientInfo = data[0];
+            setInterface();
+          } catch (error) {
+            console.error("/getAllUserInfo Fetch failed:", error);
+            console.error("Response text:", text); // 디버깅을 위한 응답 텍스트 출력
+          }
+        })
+        .catch((error) => {
+          console.error("/getAllUserInfo Fetch failed:", error);
+        });
+    }
+    pageSet(login_status);
+    pageWork();
+    document.querySelector("#loader").style.display = "none";
+  };
+</script>
